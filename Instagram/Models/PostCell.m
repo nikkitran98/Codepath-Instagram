@@ -10,6 +10,7 @@
 #import "Post.h"
 #import <ParseUI.h>
 #import <DateTools/DateTools.h>
+#import "UIImageView+AFNetworking.h"
 
 @implementation PostCell
 
@@ -33,16 +34,20 @@
     
     self.createdAt.text = [post.createdAt shortTimeAgoSinceNow];
     self.usernameLabel.text = post.author.username;
+    self.topUsernameLabel.text = post.author.username;
     self.captionView.text = post.caption;
+    
+    // add profile picture here
+    self.profileURL = [NSURL URLWithString:@"https://www.facebook.com/photo.php?fbid=1884995171534624&l=71b7c1a97e"];
+    self.profileImage.image = nil;
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2;
+    [self.profileImage setImageWithURL:self.post.profileURL];
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
     NSNumber *likes = [formatter numberFromString:self.likesLabel.text];
     NSNumber *comments = [formatter numberFromString:self.commentsLabel.text];
     likes = post.likeCount;
     comments = post.commentCount;
-    
-//    self.likesLabel.text = post.likeCount;
-//    self.commentsLabel.text = post.commentCount;
 }
 
 

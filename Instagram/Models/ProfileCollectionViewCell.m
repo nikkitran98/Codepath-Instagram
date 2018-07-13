@@ -10,6 +10,10 @@
 
 @implementation ProfileCollectionViewCell
 
-// ui image view
+- (void) setPost:(Post *) post {
+    self.postImage.image = [UIImage imageNamed:@"image_placeholder"];
+    self.postImage.file = post.image;
+    [self.postImage loadInBackground];
+}
 
 @end

@@ -24,35 +24,6 @@
     return @"Post";
 }
 
-//- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
-//    self = [super init];
-//    if (self) {
-//        NSString *createdAtOriginalString = dictionary[@"created_at"];
-//        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//        // Configure the input format to parse the date string
-//        formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
-//
-//        NSDate *createdAtDate = [formatter dateFromString:createdAtOriginalString];
-//
-//        NSTimeInterval secondsBetween = [[NSDate date] timeIntervalSinceDate:createdAtDate];
-//
-//        if (secondsBetween <= 28800) {
-//            self.createdAtString = createdAtDate.shortTimeAgoSinceNow;
-//        }
-//        else {
-//            // Convert String to Date
-//            NSDate *date = [formatter dateFromString:createdAtOriginalString];
-//            // Configure output format
-//            formatter.dateStyle = NSDateFormatterShortStyle;
-//            formatter.timeStyle = NSDateFormatterNoStyle;
-//            // Convert Date to String
-//            self.createdAtString = [formatter stringFromDate:date];
-//        }
-//
-//    }
-//    return self;
-//}
-
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     
     Post *newPost = [Post new];

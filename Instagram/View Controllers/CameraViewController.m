@@ -23,13 +23,13 @@
 
 @implementation CameraViewController
 
-- (void) getImage {
+- (void) getImage: (BOOL)camera{
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
     self.uploading = NO;
     
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+    if (camera && [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     else {
@@ -56,7 +56,11 @@
 }
 
 - (IBAction)didTapSelectImage:(id)sender {
-    [self getImage];
+    [self getImage:YES];
+}
+
+- (IBAction)didTapSelectLibrary:(id)sender {
+    [self getImage:NO];
 }
 
 
