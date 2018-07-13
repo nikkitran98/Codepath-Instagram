@@ -13,6 +13,7 @@
 		CE91CD4A20F6DE1200C99A35 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91CD4920F6DE1200C99A35 /* Post.m */; };
 		CE91CD4E20F7056100C99A35 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91CD4D20F7056100C99A35 /* CameraViewController.m */; };
 		CE91CD5120F713DE00C99A35 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE91CD5020F713DE00C99A35 /* PostCell.m */; };
+		CEDDCBB220F86D2C004BD3A0 /* CustomCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDDCBB120F86D2C004BD3A0 /* CustomCameraViewController.m */; };
 		CEDFC69E20F66E0E004CE4E6 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDFC69D20F66E0E004CE4E6 /* LoginViewController.m */; };
 		CEEB5FFA20F53B490007E5FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEB5FF920F53B490007E5FC /* AppDelegate.m */; };
 		CEEB600020F53B490007E5FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEB5FFE20F53B490007E5FC /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		CEEF1FF020F7FEBE000671EC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF1FEF20F7FEBE000671EC /* ProfileViewController.m */; };
 		CEEF1FF320F809E1000671EC /* ProfileCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF1FF220F809E1000671EC /* ProfileCollectionViewCell.m */; };
 		CEEF1FF620F81227000671EC /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF1FF520F81227000671EC /* LaunchViewController.m */; };
+		CEEF1FF920F819A7000671EC /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEEF1FF820F819A7000671EC /* TabBarController.m */; };
 		E6F5692F3E8887295F12B2B8 /* libPods-InstagramTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6950C4ABB2EF535EB8CC36B8 /* libPods-InstagramTests.a */; };
 		E8FC215F53B51A79C2243A3D /* libPods-InstagramUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 362BFC0FB11D723C76E85FC4 /* libPods-InstagramUITests.a */; };
 /* End PBXBuildFile section */
@@ -64,6 +66,8 @@
 		CE91CD4D20F7056100C99A35 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		CE91CD4F20F713DE00C99A35 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		CE91CD5020F713DE00C99A35 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		CEDDCBB020F86D2C004BD3A0 /* CustomCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCameraViewController.h; sourceTree = "<group>"; };
+		CEDDCBB120F86D2C004BD3A0 /* CustomCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCameraViewController.m; sourceTree = "<group>"; };
 		CEDFC69C20F66E0E004CE4E6 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CEDFC69D20F66E0E004CE4E6 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CEEB5FF520F53B490007E5FC /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +92,8 @@
 		CEEF1FF220F809E1000671EC /* ProfileCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileCollectionViewCell.m; sourceTree = "<group>"; };
 		CEEF1FF420F81227000671EC /* LaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		CEEF1FF520F81227000671EC /* LaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
+		CEEF1FF720F819A7000671EC /* TabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TabBarController.h; path = /Users/nikkitran/Documents/Instagram/Instagram/TabBarController.h; sourceTree = "<absolute>"; };
+		CEEF1FF820F819A7000671EC /* TabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = TabBarController.m; path = /Users/nikkitran/Documents/Instagram/Instagram/TabBarController.m; sourceTree = "<absolute>"; };
 		CFAE7C5605FFB1D1104B3F90 /* Pods-Instagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram/Pods-Instagram.release.xcconfig"; sourceTree = "<group>"; };
 		FC5084E38FC0B771B91B7934 /* Pods-InstagramUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-InstagramUITests/Pods-InstagramUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +165,8 @@
 		CEDFC69B20F66DDB004CE4E6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CEDDCBB020F86D2C004BD3A0 /* CustomCameraViewController.h */,
+				CEDDCBB120F86D2C004BD3A0 /* CustomCameraViewController.m */,
 				CE91CD4C20F7056100C99A35 /* CameraViewController.h */,
 				CE91CD4D20F7056100C99A35 /* CameraViewController.m */,
 				CEDFC69C20F66E0E004CE4E6 /* LoginViewController.h */,
@@ -202,6 +210,8 @@
 		CEEB5FF720F53B490007E5FC /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				CEEF1FF720F819A7000671EC /* TabBarController.h */,
+				CEEF1FF820F819A7000671EC /* TabBarController.m */,
 				CE91CD4B20F7009100C99A35 /* Models */,
 				CEDFC69B20F66DDB004CE4E6 /* View Controllers */,
 				CEEB5FF820F53B490007E5FC /* AppDelegate.h */,
@@ -452,6 +462,7 @@
 			files = (
 				CEDFC69E20F66E0E004CE4E6 /* LoginViewController.m in Sources */,
 				CE91CD4A20F6DE1200C99A35 /* Post.m in Sources */,
+				CEEF1FF920F819A7000671EC /* TabBarController.m in Sources */,
 				CE91CD4420F69A5E00C99A35 /* SignUpViewController.m in Sources */,
 				CE91CD5120F713DE00C99A35 /* PostCell.m in Sources */,
 				CEEF1FEA20F7D07A000671EC /* DetailedViewController.m in Sources */,
@@ -461,6 +472,7 @@
 				CEEF1FF020F7FEBE000671EC /* ProfileViewController.m in Sources */,
 				CE91CD4E20F7056100C99A35 /* CameraViewController.m in Sources */,
 				CE91CD4720F69E6100C99A35 /* LoggedInViewController.m in Sources */,
+				CEDDCBB220F86D2C004BD3A0 /* CustomCameraViewController.m in Sources */,
 				CEEF1FF620F81227000671EC /* LaunchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

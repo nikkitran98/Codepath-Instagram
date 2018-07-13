@@ -12,12 +12,14 @@
 #import "LoginViewController.h"
 #import "Post.h"
 #import "PostCell.h"
+#import "DetailedViewController.h"
+#import "MBProgressHUD.h"
 
-@interface LoggedInViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface LoggedInViewController () <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) NSMutableArray *posts;
+@property (assign, nonatomic) BOOL isMoreDataLoading;
 
 @end
 
@@ -39,7 +41,7 @@
     
     self.posts = [[NSMutableArray alloc] init];
     
-    [self fetchPosts];
+    [self fetchPosts:@20];
     
 }
 
@@ -87,6 +89,28 @@
     }];
 }
 
+- (void) fetchPosts:(NSNumber *) postCount {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    [query includeKey:@"author"];
+    [query orderByDescending:@"createdAt"];
+    query.limit = 20;
+    
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            [self.posts removeAllObjects];
+            for (Post *post in posts) {
+                [self.posts addObject:post];
+            }
+            [self.refreshControl endRefreshing];
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.posts.count;
 }
@@ -102,15 +126,39 @@
     return cell;
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(!self.isMoreDataLoading){
+        // Calculate the position of one screen length before the bottom of the results
+        int scrollViewContentHeight = self.tableView.contentSize.height;
+        int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+        
+        // When the user has scrolled past the threshold, start requesting
+        if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+            self.isMoreDataLoading = true;
+            
+            // ... Code to load more results ...
+            [self fetchPosts];
+            NSLog(@"More posts successfully fetched");
+        }
+    }
+}
 
-/*
+
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqual:@"detailsSegue"]){
+        UINavigationController *navigationController = [segue destinationViewController];
+        DetailedViewController *detailViewController = navigationController.viewControllers[0];
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Post *post = self.posts[indexPath.row];
+        detailViewController.post = post;
+    }
 }
-*/
+
 
 @end

@@ -10,12 +10,14 @@
 #import "Parse.h"
 #import "AppDelegate.h"
 #import "Post.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *selectedImage;
 @property (weak, nonatomic) IBOutlet UITextView *photoDescription;
+@property (nonatomic) BOOL uploading;
 
 @end
 
@@ -25,6 +27,7 @@
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
+    self.uploading = NO;
     
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -45,7 +48,7 @@
     
     // Do something with the images (based on your use case)
     self.selectedImage.image = [self resizeImage:editedImage withSize:CGSizeMake(400, 400)];
-    
+    NSLog(@"swap");
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -59,19 +62,31 @@
 
 // did tap post
 - (IBAction)didTapPost:(id)sender {
-    [Post postUserImage:self.selectedImage.image withCaption:self.photoDescription.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"Post success");
-            self.selectedImage.image = [UIImage imageNamed:@"image_placeholder"];
-        }
-        else {
-            NSLog(@"Failed to post");
-        }
-    }];
+    if (![self.selectedImage.image isEqual:[UIImage imageNamed:@"image_placeholder"]] && !self.uploading) {
+        NSLog(@"Yeehaw");
+        self.uploading = YES;
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [Post postUserImage:self.selectedImage.image withCaption:self.photoDescription.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                NSLog(@"Post success");
+                self.selectedImage.image = [UIImage imageNamed:@"image_placeholder"];
+            }
+            else {
+                NSLog(@"Failed to post");
+            }
+            self.uploading = NO;
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            [self performSegueWithIdentifier:@"loggedInSegue" sender:nil];
+        }];
+    }
+    else {
+        NSLog(@"No image to upload");
+    }
 }
 
 // did tap cancel
 - (IBAction)didTapCancel:(id)sender {
+    [self performSegueWithIdentifier:@"loggedInSegue" sender:nil];
 }
 
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {

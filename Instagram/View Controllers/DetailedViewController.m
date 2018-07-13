@@ -9,15 +9,9 @@
 #import "DetailedViewController.h"
 #import <ParseUI/ParseUI.h>
 #import <DateTools/DateTools.h>
-#import "PostCell.h"
+#import "Post.h"
 
 @interface DetailedViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *postImage;
-@property (weak, nonatomic) IBOutlet UILabel *likesLabel;
-@property (weak, nonatomic) IBOutlet UILabel *commentsLabel;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UITextView *captionView;
-@property (weak, nonatomic) IBOutlet UILabel *createdAt;
 
 @end
 
@@ -25,16 +19,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self configureView];
 }
 
 - (void)configureView {
-//    self.postImage.image = [UIImage imageNamed:@"image_placeholder"];
-//    self.postImage.file = post.image;
-//    [self.postImage loadInBackground];
-//
-//    self.createdAt.text = [self.post.createdAt shortTimeAgoSinceNow];
-//    self.usernameLabel.text = self.post.author.username;
-//    self.captionView.text = self.post.caption;
+    self.postImage.image = [UIImage imageNamed:@"image_placeholder"];
+    self.postImage.file = self.post[@"image"];
+    [self.postImage loadInBackground];
+
+    self.createdAt.text = [self.post.createdAt shortTimeAgoSinceNow];
+    self.usernameLabel.text = self.post.author.username;
+    self.captionView.text = self.post.caption;
 }
 
 - (void)didReceiveMemoryWarning {
