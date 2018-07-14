@@ -37,10 +37,7 @@
     self.topUsernameLabel.text = post.author.username;
     self.captionView.text = post.caption;
     
-//    self.profileURL = [NSURL URLWithString:@"https://www.facebook.com/photo.php?fbid=1884995171534624&l=71b7c1a97e"];
-    self.profileImage.image = nil;
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2;
-    [self.profileImage setImageWithURL:self.post.profileURL];
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc]init];
     NSNumber *likes = [formatter numberFromString:self.likesLabel.text];

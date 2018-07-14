@@ -24,10 +24,12 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
+    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2;
+    
     self.postsArray = [[NSMutableArray alloc] init];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
-    CGFloat spacing = 2;
+    CGFloat spacing = 0;
     layout.minimumInteritemSpacing = spacing;
     layout.minimumLineSpacing = spacing;
     

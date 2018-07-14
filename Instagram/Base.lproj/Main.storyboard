@@ -517,10 +517,10 @@
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MDa-tC-AgX">
-                                <rect key="frame" x="340" y="118" width="32" height="25"/>
+                                <rect key="frame" x="350" y="121" width="22" height="19"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="hBN-yP-srd"/>
-                                    <constraint firstAttribute="width" constant="32" id="zsZ-ph-Fcm"/>
+                                    <constraint firstAttribute="height" constant="19" id="hBN-yP-srd"/>
+                                    <constraint firstAttribute="width" constant="22" id="zsZ-ph-Fcm"/>
                                 </constraints>
                                 <state key="normal" image="icons8-settings-32">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -657,7 +657,7 @@
                             <constraint firstItem="BOJ-3Q-M1y" firstAttribute="top" secondItem="1qP-LQ-b78" secondAttribute="top" constant="18" id="NNo-dr-TVt"/>
                             <constraint firstItem="tQE-GZ-Trq" firstAttribute="top" secondItem="k39-fk-UHV" secondAttribute="bottom" constant="4" id="YV7-V2-Oh6"/>
                             <constraint firstAttribute="bottom" secondItem="6XT-Rz-RRk" secondAttribute="bottom" id="b0k-Jj-l8q"/>
-                            <constraint firstItem="MDa-tC-AgX" firstAttribute="leading" secondItem="tQE-GZ-Trq" secondAttribute="trailing" constant="5" id="fwq-uL-TbJ"/>
+                            <constraint firstItem="MDa-tC-AgX" firstAttribute="leading" secondItem="tQE-GZ-Trq" secondAttribute="trailing" constant="15" id="fwq-uL-TbJ"/>
                             <constraint firstItem="CUm-Yy-Uht" firstAttribute="top" secondItem="yxM-3K-jzq" secondAttribute="bottom" constant="2" id="jLt-5h-NqZ"/>
                             <constraint firstItem="1qP-LQ-b78" firstAttribute="trailing" secondItem="MDa-tC-AgX" secondAttribute="trailing" constant="3" id="kvt-Fj-Dfl"/>
                             <constraint firstItem="tQE-GZ-Trq" firstAttribute="leading" secondItem="BOJ-3Q-M1y" secondAttribute="trailing" constant="8" id="lpZ-on-npw"/>
@@ -667,7 +667,7 @@
                             <constraint firstItem="k39-fk-UHV" firstAttribute="leading" secondItem="BOJ-3Q-M1y" secondAttribute="trailing" constant="8" id="whW-FO-If7"/>
                             <constraint firstItem="1qP-LQ-b78" firstAttribute="trailing" secondItem="CUm-Yy-Uht" secondAttribute="trailing" constant="8" id="wub-Xm-gnn"/>
                             <constraint firstItem="yxM-3K-jzq" firstAttribute="top" secondItem="BOJ-3Q-M1y" secondAttribute="bottom" constant="8" id="x9s-My-RsI"/>
-                            <constraint firstItem="MDa-tC-AgX" firstAttribute="top" secondItem="1qP-LQ-b78" secondAttribute="top" constant="54" id="yh3-IE-VPh"/>
+                            <constraint firstItem="MDa-tC-AgX" firstAttribute="top" secondItem="1qP-LQ-b78" secondAttribute="top" constant="57" id="yh3-IE-VPh"/>
                             <constraint firstItem="CUm-Yy-Uht" firstAttribute="leading" secondItem="1qP-LQ-b78" secondAttribute="leading" constant="16" id="zTb-MX-V3U"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1qP-LQ-b78"/>
@@ -675,6 +675,7 @@
                     <navigationItem key="navigationItem" id="oG6-gF-Jmg"/>
                     <connections>
                         <outlet property="collectionView" destination="2X0-mj-rzf" id="nwV-yc-6Fd"/>
+                        <outlet property="profileImage" destination="BOJ-3Q-M1y" id="sLb-Rf-Kic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="han-qs-gz7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -892,7 +893,7 @@
                         <outlet property="likesLabel" destination="Ohy-Vj-RQc" id="IF8-SR-jaA"/>
                         <outlet property="postImage" destination="7Ru-sB-ugF" id="MPp-A4-7cZ"/>
                         <outlet property="usernameLabel" destination="hSn-YX-7j5" id="CuI-Mo-dAG"/>
-                        <segue destination="tW7-hc-eRM" kind="presentation" identifier="loggedInSegue" id="pl6-r0-tpv"/>
+                        <segue destination="ecO-Xh-JdN" kind="presentation" identifier="loggedInSegue" id="ksA-9i-fWP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYd-l9-ebG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -915,7 +916,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYV-Nt-hCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5046" y="-297"/>
+            <point key="canvasLocation" x="5095" y="-297"/>
         </scene>
     </scenes>
     <resources>
@@ -933,7 +934,6 @@
         <image name="profile_tab" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gdv-b0-0wJ"/>
-        <segue reference="pl6-r0-tpv"/>
+        <segue reference="PPu-ud-0AD"/>
     </inferredMetricsTieBreakers>
 </document>
