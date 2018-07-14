@@ -12,7 +12,7 @@
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
-@property (strong, nonatomic) NSMutableArray *postsArray;
+@property (strong, nonatomic) NSArray *postsArray;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
@@ -24,29 +24,36 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
-    [self fetchUserPosts];
+    self.postsArray = [[NSMutableArray alloc] init];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
+    CGFloat spacing = 2;
+    layout.minimumInteritemSpacing = spacing;
+    layout.minimumLineSpacing = spacing;
     
     CGFloat postersPerLine = 3;
     CGFloat itemWidth = self.collectionView.frame.size.width / postersPerLine;
-    CGFloat itemHeight = itemWidth * 1.5;
+    CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+    
+    [self fetchUserPosts];
 }
 
 - (void) fetchUserPosts {
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query includeKey:@"author"];
+    [query whereKey:@"author" equalTo:PFUser.currentUser];
     [query orderByDescending:@"createdAt"];
     
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            [self.postsArray removeAllObjects];
-            for (Post *post in posts) {
-                [self.postsArray addObject:post];
-            }
+//            [self.postsArray removeAllObjects];
+//            for (Post *post in posts) {
+//                [self.postsArray addObject:post];
+//            }
+            self.postsArray = posts;
             [self.collectionView reloadData];
         } else {
             NSLog(@"%@", error.localizedDescription);
@@ -56,7 +63,8 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ProfileCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollection" forIndexPath:indexPath];
-    cell.postImage = self.postsArray[indexPath.row];
+    Post * post = self.postsArray[indexPath.item];
+    cell.post = post;
     return cell;
 }
 

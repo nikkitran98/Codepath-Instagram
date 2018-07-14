@@ -11,7 +11,7 @@
 @implementation ProfileCollectionViewCell
 
 - (void) setPost:(Post *) post {
-    self.postImage.image = [UIImage imageNamed:@"image_placeholder"];
+    _post = post;
     self.postImage.file = post.image;
     [self.postImage loadInBackground];
 }

@@ -62,7 +62,6 @@
             LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
             appDelegate.window.rootViewController = loginViewController;
             NSLog(@"Logout successful");
-            
         }
     }];
 }
@@ -99,10 +98,11 @@
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
         if (posts != nil) {
-            [self.posts removeAllObjects];
-            for (Post *post in posts) {
-                [self.posts addObject:post];
-            }
+//            [self.posts removeAllObjects];
+//            for (Post *post in posts) {
+//                [self.posts addObject:post];
+//            }
+            self.posts = posts;
             [self.refreshControl endRefreshing];
             [self.tableView reloadData];
         } else {

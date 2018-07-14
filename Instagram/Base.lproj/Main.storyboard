@@ -209,7 +209,7 @@
                                                         <constraint firstAttribute="width" constant="164" id="YB4-Te-fD2"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="UEj-HI-Eok">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_8198" translatesAutoresizingMaskIntoConstraints="NO" id="UEj-HI-Eok">
                                                     <rect key="frame" x="1" y="5" width="35" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="dEr-O1-wrz"/>
@@ -499,7 +499,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="BOJ-3Q-M1y">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_8198" translatesAutoresizingMaskIntoConstraints="NO" id="BOJ-3Q-M1y">
                                 <rect key="frame" x="16" y="82" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="0ET-9O-Zod"/>
@@ -634,7 +634,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="PM3-73-37p" secondAttribute="trailing" id="slb-qn-qgG"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="postImage" destination="PM3-73-37p" id="dPl-0O-cNl"/>
+                                                    <outlet property="postImage" destination="PM3-73-37p" id="aDK-o2-sya"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -805,7 +805,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I love codepath!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="f7p-C4-RAy">
-                                <rect key="frame" x="0.0" y="508" width="375" height="47"/>
+                                <rect key="frame" x="0.0" y="508" width="375" height="96"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -879,7 +879,11 @@
                         <viewLayoutGuide key="safeArea" id="Q6I-Pe-7Zq"/>
                     </view>
                     <navigationItem key="navigationItem" id="WYp-Ez-a5E">
-                        <barButtonItem key="leftBarButtonItem" image="icons8-back-24" id="BSf-z2-mEs"/>
+                        <barButtonItem key="leftBarButtonItem" image="icons8-back-24" id="BSf-z2-mEs">
+                            <connections>
+                                <action selector="didTapBackButton:" destination="96U-71-IHU" id="Th5-3I-5Hx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="captionView" destination="f7p-C4-RAy" id="446-wY-WDn"/>
@@ -888,6 +892,7 @@
                         <outlet property="likesLabel" destination="Ohy-Vj-RQc" id="IF8-SR-jaA"/>
                         <outlet property="postImage" destination="7Ru-sB-ugF" id="MPp-A4-7cZ"/>
                         <outlet property="usernameLabel" destination="hSn-YX-7j5" id="CuI-Mo-dAG"/>
+                        <segue destination="tW7-hc-eRM" kind="presentation" identifier="loggedInSegue" id="pl6-r0-tpv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYd-l9-ebG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -910,10 +915,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYV-Nt-hCn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5033" y="-297"/>
+            <point key="canvasLocation" x="5046" y="-297"/>
         </scene>
     </scenes>
     <resources>
+        <image name="IMG_8198" width="3024" height="3025"/>
         <image name="InstagramLogo" width="3300" height="936"/>
         <image name="feed_tab" width="25" height="25"/>
         <image name="icons8-add-new-32" width="32" height="32"/>
@@ -928,5 +934,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Gdv-b0-0wJ"/>
+        <segue reference="pl6-r0-tpv"/>
     </inferredMetricsTieBreakers>
 </document>

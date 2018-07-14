@@ -37,6 +37,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)didTapBackButton:(id)sender {
+    [self performSegueWithIdentifier:@"loggedInSegue" sender:nil];
+}
+
+
 /*
 #pragma mark - Navigation
 
